@@ -68,6 +68,9 @@ Through my use of the tool I found several strengths and limitations. An overvie
 Even after reflecting on the limitations, I think it is still a useful tool that could be used to conduct the majority of cleaning. It at least gets dataframe 90% clean so that a python script to finish cleaning would be small and easy to write. Makes the entire data pipeline more understandable which is important when working in MLOps.
 
 
+## Comments:
+If you are in 11695, and want to leave comments on this blog post please go to the following [link](https://canvas.cmu.edu/courses/33389/discussion_topics/515422)
+
 ## Citations:
 - https://datacleaner.github.io/
 - https://datacleaner.github.io/docs/5.4.0/components/index.html
