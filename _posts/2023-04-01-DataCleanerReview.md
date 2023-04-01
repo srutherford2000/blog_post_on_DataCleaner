@@ -20,7 +20,7 @@ Here is an image below showing a successful launch of DataCleaner:
 ![image of commands running in a terminal launching DataCleaner](https://github.com/srutherford2000/blog_post_on_DataCleaner/blob/eb89426983af92d3afb6576fe363f62f9df5ea01/images/opening_datacleaner2.PNG?raw=true)
 
 
-## What Problem this Tool Addresses:
+## What Problem Does This Tool Address:
 As the name suggests, this tool aims to solve problems that are related to data. Mainly it serves as a way to clean, analyze, visualize, and transform data through the creation of jobs which run a series of steps. When you first open DataCleaner, it allows you to choose a datastore. This datastore can be in the form of a .csv, .xls, .mdb, .xml, .json, and other formats which allows large flexibility in the type of data that can be imported. Once you've imported your datastore(s), you can then start to create pipelines using the 4 built in libraries: Transform, Improve, Analyze, and Write. 
 
 The Transform library contains functions which run on every row and allow you to convert old data into some new form. I found the "String contains filter", "Validate with String Pattern", and "Regex parser" to be super powerful for splitting and ensuring this new data met specific formatting criteria. 
@@ -35,6 +35,7 @@ Overall, this tool aims to solve many of the problems faced in the data pipeline
 
 ## Example Tool Usage for a Movie Recommendation System:
 This next section will look at how this tool can be applied to our class movie recommendation system problem. For context, we are provided data from a Kafka stream that can be in 3 different forms movie data requests, movie ratings, and movie recommendations with corresponding format of data shown in the image below. The goal is to use the provided data in order to produce the best movie recommendations for a specific user. I used the DataCleaner tool to recreate the data pipeline my group is using to clean data for our project. 
+![data structure](https://github.com/srutherford2000/blog_post_on_DataCleaner/blob/main/images/data_structure.PNG?raw=true)
 
 The pipeline my group used in the previous milestone is as follows:
 1. Collect 12 hours’ worth of data
@@ -54,8 +55,17 @@ Another important result came from the completeness analyzer. As you can see bel
 ![datacleaning results_part2 done in datacleaner](https://github.com/srutherford2000/blog_post_on_DataCleaner/blob/main/images/completness_report.PNG?raw=true)
 
 ## Strengths and Limitations of DataCleaner:
+Through my use of the tool I found several strengths and limitations. An overview of my observations is below:
+| Strengths      | Limitations |
+| ----------- | ----------- |
+| - Premade Data Processing Functions: The tool has a ton of common preprocessing functions already created that are optimized. This means you can focus on what needs to be done to your data and not how to do that.     | - Struggles with unstructured data: When loading in the original csv, DataCleaner chose to truncate the datastore at 3 columns which caused me to lose all of the recommendation data. (Movie and Rates data have 3 columns, but recommendations have 24 columns) I tried to get it to read more columns but was unsuccessful.    |
+| - Relatively Quick Processing: When running the job that had to do 2 formatting checks, 2 filters, and 2 regex parsers it only took about 5 minutes to run 36,000,000 rows. This is powerful. | - Cannot merge tables effectively: DataCleaner only has union capabilities and not merge capabilities. I was hoping to merge movie data with movie metadata(genre, cast/crew, etc.) using the title_year as a merging key. I found I was unable to do this as there was no merge.        |
+| - Makes pipelines more readable   | - Documentation for CLI is difficult to understand. This is a big limitation because the CLI is what would make this tool useful in MLOps. If you only use the GUI it is a static tool.        |
+
+Even after reflecting on the limitations, I think it is still a useful tool that could be used to conduct the majority of cleaning. It at least gets dataframe 90% clean so that a python script to finish cleaning would be small and easy to write. Makes the entire data pipeline more understandable which is important when working in MLOps.
+
 
 ## Citations:
-https://datacleaner.github.io/
-https://datacleaner.github.io/docs/5.4.0/components/index.html
-https://github.com/skills/github-pages
+- https://datacleaner.github.io/
+- https://datacleaner.github.io/docs/5.4.0/components/index.html
+- https://github.com/skills/github-pages
