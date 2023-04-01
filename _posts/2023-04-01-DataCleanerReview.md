@@ -17,7 +17,7 @@ Installing this tool was very easy. The steps are listed below:
 Note that the first time launching DataCleaner took a fairly long time (on the order of minutes) as it had to do some installation. After the first time, it loads quicker (on the order of seconds) using the same command.
 
 Here is an image below showing a successful launch of DataCleaner:
-![image of commands running in a terminal launching DataCleaner](https://github.com/srutherford2000/blog_post_on_DataCleaner/blob/main/images/opening_datacleaner.PNG)
+![image of commands running in a terminal launching DataCleaner](https://github.com/srutherford2000/blog_post_on_DataCleaner/blob/eb89426983af92d3afb6576fe363f62f9df5ea01/images/opening_datacleaner2.PNG)
 
 
 ## What Problem this Tool Addresses:
