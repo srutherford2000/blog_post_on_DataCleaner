@@ -55,12 +55,15 @@ Another important result came from the completeness analyzer. As you can see bel
 ![datacleaning results_part2 done in datacleaner](https://github.com/srutherford2000/blog_post_on_DataCleaner/blob/main/images/completness_report.PNG?raw=true)
 
 ## Strengths and Limitations of DataCleaner:
-Through my use of the tool I found several strengths and limitations. An overview of my observations is below:
-| Strengths      | Limitations |
-| ----------- | ----------- |
-| - Premade Data Processing Functions: The tool has a ton of common preprocessing functions already created that are optimized. This means you can focus on what needs to be done to your data and not how to do that.     | - Struggles with unstructured data: When loading in the original csv, DataCleaner chose to truncate the datastore at 3 columns which caused me to lose all of the recommendation data. (Movie and Rates data have 3 columns, but recommendations have 24 columns) I tried to get it to read more columns but was unsuccessful.    |
-| - Relatively Quick Processing: When running the job that had to do 2 formatting checks, 2 filters, and 2 regex parsers it only took about 5 minutes to run 36,000,000 rows. This is powerful. | - Cannot merge tables effectively: DataCleaner only has union capabilities and not merge capabilities. I was hoping to merge movie data with movie metadata(genre, cast/crew, etc.) using the title_year as a merging key. I found I was unable to do this as there was no merge.        |
-| - Makes pipelines more readable   | - Documentation for CLI is difficult to understand. This is a big limitation because the CLI is what would make this tool useful in MLOps. If you only use the GUI it is a static tool.        |
+Through my use of the tool I found several strengths and limitations. An overview of my observations is below.
+- Strenghts:
+  - Premade Data Processing Functions. The tool has a ton of common preprocessing functions already created that are optimized. This means you can focus on what needs to be done to your data and not how to do that.
+  - Relatively Quick Processing. When running the job that had to do 2 formatting checks, 2 filters, and 2 regex parsers it only took about 5 minutes to run 36,000,000 rows. This is powerful.
+  - Makes pipelines more readable.
+- Limitations
+  - Struggles with unstructured data. When loading in the original csv, DataCleaner chose to truncate the datastore at 3 columns which caused me to lose all of the recommendation data. (Movie and Rates data have 3 columns, but recommendations have 24 columns) I tried to get it to read more columns but was unsuccessful. 
+  - Cannot merge tables effectively. DataCleaner only has union capabilities and not merge capabilities. I was hoping to merge movie data with movie metadata(genre, cast/crew, etc.) using the title_year as a merging key. I found I was unable to do this as there was no merge.
+  -  Documentation for CLI is difficult to understand. This is a big limitation because the CLI is what would make this tool useful in MLOps. If you only use the GUI it is a static tool.
 
 Even after reflecting on the limitations, I think it is still a useful tool that could be used to conduct the majority of cleaning. It at least gets dataframe 90% clean so that a python script to finish cleaning would be small and easy to write. Makes the entire data pipeline more understandable which is important when working in MLOps.
 
